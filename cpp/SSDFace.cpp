@@ -9,7 +9,7 @@ using namespace cv::dnn;
 using namespace std;
 const string modelsdir = "models";
 String modelTxt = modelsdir+"/face_deploy.prototxt";
-String modelBin = modelsdir + "/VGG_Face2017_SSD_300x300_iter_25359.caffemodel";
+String modelBin = modelsdir + "/VGG_Face2017_SSD_300x300_iter_120000.caffemodel";
 const size_t width = 300;
 const size_t height = 300;
 static Mat getMean(const size_t& imageHeight, const size_t& imageWidth)
@@ -93,7 +93,23 @@ int SSDFaceDetector::Detect(cv::Mat &frame)
 
 	return 0;
 }
-int main(int argc, char** argv)
+
+int testcamera(int cameraindex=0)
+{
+    cv::VideoCapture capture(cameraindex);
+    cv::Mat frame;
+    while (true)
+    {
+        capture >> frame;
+        if(!frame.data)
+            break;
+        SSDFaceDetector::getInstance()->Detect(frame);
+        imshow("SSDFace", frame);
+        waitKey(1);
+    }
+    return 0;
+}
+int testimage(int argc, char** argv)
 {
 	string filepath= "000001.jpg";
 	if (argc > 1)
@@ -104,5 +120,12 @@ int main(int argc, char** argv)
 	SSDFaceDetector::getInstance()->Detect(frame);
 	imshow("SSDFace", frame);
 	waitKey();
+    return 0;
+}
+
+int main(int argc, char** argv)
+{
+    testimage(argc, argv);
+//    testcamera();
     return 0;
 }

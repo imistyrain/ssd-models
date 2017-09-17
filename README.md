@@ -30,7 +30,7 @@ git clone https://github.com/imistyrain/ssd-face
 
 ### 3. 运行demo
 
-下载预训练好的[模型](http://pan.baidu.com/s/1boKcW1L)（百度网盘, 约90M, 密码：jvhw），将其置于cpp文件夹下，确保结构如图下图所示
+下载预训练好的[模型](http://pan.baidu.com/s/1c1A7ESC)（120000 iters, 约90M, 密码：4iyb），将其置于cpp文件夹下，确保结构如图下图所示
 ![](https://i.imgur.com/UH7wTPh.png)
 
 #### 3.1 python版本
