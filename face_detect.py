@@ -35,10 +35,12 @@ def get_labelname(labelmap, labels):
                 break
         assert found == True
     return labelnames
-#model_def = rootdir+'models/VGGNet/'+datasetname+'/SSD_300x300/deploy.prototxt'
-#model_weights = rootdir+'models/VGGNet/'+datasetname+"/SSD_300x300/VGG_"+datasetname+'_SSD_300x300_iter_25359.caffemodel'
-model_def =curdir+"/cpp/models/face_deploy.prototxt"
-model_weights=curdir+"/cpp/models/VGG_Face2017_SSD_300x300_iter_25359.caffemodel"
+#model_def =curdir+"/cpp/models/face_deploy.prototxt"
+#model_weights=curdir+"/cpp/models/VGG_Face2017_SSD_300x300_iter_120000.caffemodel"
+#image_resize = 300
+model_def =curdir+"/cpp/models/faceboxes_deploy.prototxt"
+model_weights=curdir+"/cpp/models/FaceBoxes_1024x1024.caffemodel"
+image_resize = 1024
 net = caffe.Net(model_def,      # defines the structure of the model
                 model_weights,  # contains the trained weights
                 caffe.TEST)     # use test mode (e.g., don't perform dropout)
@@ -49,7 +51,7 @@ transformer.set_transpose('data', (2, 0, 1))
 transformer.set_mean('data', np.array([104,117,123])) # mean pixel
 transformer.set_raw_scale('data', 255)  # the reference model operates on images in [0,255] range instead of [0,1]
 transformer.set_channel_swap('data', (2,1,0))  # the reference model has channels in BGR order instead of RGB
-image_resize = 300
+
 net.blobs['data'].reshape(1,3,image_resize,image_resize)
 
 image = caffe.io.load_image('cpp/000001.jpg')

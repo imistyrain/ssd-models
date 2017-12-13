@@ -1,5 +1,4 @@
-import os,random
-import cv2
+import os,random,cv2
 
 datasetId="fddb"
 datasetyear=""

@@ -7,6 +7,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ssd-face", "ssd-face.pyproj
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SSDFace", "cpp\SSDFace.vcxproj", "{F13000C4-EC24-4A69-B2D8-60A16ADBB824}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpp4caffe", "cpp4caffe\cpp4caffe.vcxproj", "{1C1ACF14-116E-44E7-B349-07E2EBD6EA54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,7 @@ Global
 		{69443BC6-E3E9-42BA-A8D2-9C8075B1A700}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{69443BC6-E3E9-42BA-A8D2-9C8075B1A700}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69443BC6-E3E9-42BA-A8D2-9C8075B1A700}.Release|x64.ActiveCfg = Release|Any CPU
+		{69443BC6-E3E9-42BA-A8D2-9C8075B1A700}.Release|x64.Build.0 = Release|Any CPU
 		{69443BC6-E3E9-42BA-A8D2-9C8075B1A700}.Release|x86.ActiveCfg = Release|Any CPU
 		{F13000C4-EC24-4A69-B2D8-60A16ADBB824}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{F13000C4-EC24-4A69-B2D8-60A16ADBB824}.Debug|x64.ActiveCfg = Debug|x64
@@ -33,6 +36,14 @@ Global
 		{F13000C4-EC24-4A69-B2D8-60A16ADBB824}.Release|x64.Build.0 = Release|x64
 		{F13000C4-EC24-4A69-B2D8-60A16ADBB824}.Release|x86.ActiveCfg = Release|Win32
 		{F13000C4-EC24-4A69-B2D8-60A16ADBB824}.Release|x86.Build.0 = Release|Win32
+		{1C1ACF14-116E-44E7-B349-07E2EBD6EA54}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{1C1ACF14-116E-44E7-B349-07E2EBD6EA54}.Debug|x64.ActiveCfg = Debug|x64
+		{1C1ACF14-116E-44E7-B349-07E2EBD6EA54}.Debug|x64.Build.0 = Debug|x64
+		{1C1ACF14-116E-44E7-B349-07E2EBD6EA54}.Debug|x86.ActiveCfg = Debug|x64
+		{1C1ACF14-116E-44E7-B349-07E2EBD6EA54}.Release|Any CPU.ActiveCfg = Release|x64
+		{1C1ACF14-116E-44E7-B349-07E2EBD6EA54}.Release|x64.ActiveCfg = Release|x64
+		{1C1ACF14-116E-44E7-B349-07E2EBD6EA54}.Release|x64.Build.0 = Release|x64
+		{1C1ACF14-116E-44E7-B349-07E2EBD6EA54}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
