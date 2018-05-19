@@ -1,6 +1,10 @@
 from __future__ import print_function
-import sys
-sys.path.append('python')
+import sys,platform
+if platform.system()=="Windows":
+    caffe_root="D:/CNN/ssd"#2
+else:
+    caffe_root="/home/yanyu/Detection/ssd"
+sys.path.insert(0,caffe_root+'/python')
 import caffe
 from caffe.model_libs import *
 from google.protobuf import text_format
@@ -12,6 +16,14 @@ import stat
 import subprocess
 import sys
 datasetname="Face2017"
+gpus = "0"
+label_map_file = "labelmap_face.prototxt"
+num_classes = 2
+
+run_soon = True
+resume_training = True
+remove_old_models = False
+
 # Add extra layers on top of a "base" network (e.g. VGGNet or Inception).
 def AddExtraLayers(net, use_batchnorm=True, lr_mult=1):
     use_relu = True
@@ -65,25 +77,8 @@ def AddExtraLayers(net, use_batchnorm=True, lr_mult=1):
       lr_mult=lr_mult)
 
     return net
-
-
-### Modify the following parameters accordingly ###
-# The directory which contains the caffe code.
-# We assume you are running the script at the CAFFE_ROOT.
-caffe_root = os.getcwd()
-
-# Set true if you want to start training right after generating all files.
-run_soon = True
-# Set true if you want to load from most recently saved snapshot.
-# Otherwise, we will load from the pretrain_model defined below.
-resume_training = True
-# If true, Remove old model files.
-remove_old_models = False
-
-# The database file for training data. Created by data/VOC0712/create_data.sh
-train_data = "examples/"+datasetname+"/"+datasetname+"_trainval_lmdb"
-# The database file for testing data. Created by data/VOC0712/create_data.sh
-test_data = "examples/"+datasetname+"/"+datasetname+"_test_lmdb"
+train_data = "lmdb/trainval_lmdb"
+test_data = "lmdb/test_lmdb"
 # Specify the batch sampler.
 resize_width = 300
 resize_height = 300
@@ -245,7 +240,7 @@ snapshot_dir = "models/VGGNet/"+datasetname+"/{}".format(job_name)
 # Directory which stores the job script and log file.
 job_dir = "jobs/VGGNet/"+datasetname+"/{}".format(job_name)
 # Directory which stores the detection results.
-output_result_dir = "{}/data/VOCdevkit/results/"+datasetname+"/{}/Main".format(os.environ['HOME'], job_name)
+output_result_dir = "results/"+datasetname+"/"+job_name
 
 # model definition files.
 train_net_file = "{}/train.prototxt".format(save_dir)
@@ -258,14 +253,12 @@ snapshot_prefix = "{}/{}".format(snapshot_dir, model_name)
 job_file = "{}/{}.sh".format(job_dir, model_name)
 
 # Stores the test image names and sizes. Created by data/VOC0712/create_list.sh
-name_size_file = "data/"+datasetname+"/test_name_size.txt"
+name_size_file = "test_name_size.txt"
 # The pretrained model. We use the Fully convolutional reduced (atrous) VGGNet.
-pretrain_model = "models/VGGNet/VGG_ILSVRC_16_layers_fc_reduced.caffemodel"
-# Stores LabelMapItem.
-label_map_file = "data/"+datasetname+"/labelmap_face.prototxt"
+pretrain_model = caffe_root+"/"+"models/VGGNet/VGG_ILSVRC_16_layers_fc_reduced.caffemodel"
 
 # MultiBoxLoss parameters.
-num_classes = 2
+
 share_location = True
 background_label_id=0
 train_on_diff_gt = True
@@ -312,7 +305,7 @@ max_ratio = 90
 step = int(math.floor((max_ratio - min_ratio) / (len(mbox_source_layers) - 2)))
 min_sizes = []
 max_sizes = []
-for ratio in xrange(min_ratio, max_ratio + 1, step):
+for ratio in range(min_ratio, max_ratio + 1, step):
   min_sizes.append(min_dim * ratio / 100.)
   max_sizes.append(min_dim * (ratio + step) / 100.)
 min_sizes = [min_dim * 10 / 100.] + min_sizes
@@ -331,7 +324,7 @@ clip = False
 
 # Solver parameters.
 # Defining which GPUs to use.
-gpus = "1"
+
 gpulist = gpus.split(",")
 num_gpus = len(gpulist)
 
@@ -556,8 +549,7 @@ if remove_old_models:
 
 # Create job file.
 with open(job_file, 'w') as f:
-  f.write('cd {}\n'.format(caffe_root))
-  f.write('./build/tools/caffe train \\\n')
+  f.write('{}/build/tools/caffe train \\\n'.format(caffe_root))
   f.write('--solver="{}" \\\n'.format(solver_file))
   f.write(train_src_param)
   if solver_param['solver_mode'] == P.Solver.GPU:

@@ -5,13 +5,15 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>69443bc6-e3e9-42ba-a8d2-9c8075b1a700</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>faceboxes_test.py</StartupFile>
+    <StartupFile>create_all.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>fddb</Name>
     <RootNamespace>fddb</RootNamespace>
+    <InterpreterId>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,11 +28,13 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="create_list.py" />
-    <Compile Include="faceboxes_test.py" />
-    <Compile Include="face_detect.py" />
-    <Compile Include="face_train.py" />
-    <Compile Include="score_ssd_face.py" />
+    <Compile Include="create_all.py" />
+    <Compile Include="demo.py" />
+    <Compile Include="test.py" />
+    <Compile Include="train.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\3.5" />
   </ItemGroup>
   <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
   <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

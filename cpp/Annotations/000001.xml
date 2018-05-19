@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<annotation>
+	<folder>3-1</folder>
+	<filename>000001.jpg</filename>
+	<path>000001.jpg</path>
+	<source>
+		<database></database>
+		<annotation></annotation>
+	</source>
+	<size>
+		<width>353</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>classA</name>
+		<pose></pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>137</xmin>
+			<ymin>25</ymin>
+			<xmax>272</xmax>
+			<ymax>223</ymax>
+		</bndbox>
+	</object>
+</annotation>

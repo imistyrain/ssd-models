@@ -5,3 +5,6 @@ cpp/models
 clean.bat
 bin
 cpp4caffe
+lmdb/
+jobs/
+models/

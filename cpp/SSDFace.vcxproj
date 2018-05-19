@@ -74,16 +74,16 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\CNN\ssd\build\install\include;D:\opencv33\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\CNN\ssd\build\install\lib;D:\opencv33\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\CNN\ssd\build\install\include;D:\opencv34\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\CNN\ssd\build\install\lib;D:\opencv34\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\CNN\ssd\build\install\include;D:\opencv33\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\CNN\ssd\build\install\lib;D:\opencv33\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\CNN\ssd\build\install\include;D:\opencv34\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\CNN\ssd\build\install\lib;D:\opencv34\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -151,11 +151,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="VOCUtil\AnnotationFile.cpp" />
+    <ClCompile Include="VOCUtil\DataSetConfig.cpp" />
+    <ClCompile Include="VOCUtil\pugixml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FaceBoxes.h" />
     <ClInclude Include="SSDFaceConfig.h" />
     <ClInclude Include="SSDFaceDetector.h" />
+    <ClInclude Include="VOCUtil\AnnotationFile.h" />
+    <ClInclude Include="VOCUtil\DataSetConfig.h" />
+    <ClInclude Include="VOCUtil\pugiconfig.hpp" />
+    <ClInclude Include="VOCUtil\pugixml.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

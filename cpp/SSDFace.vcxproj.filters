@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="VOCUtil\AnnotationFile.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="VOCUtil\DataSetConfig.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="VOCUtil\pugixml.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FaceBoxes.h" />
+    <ClInclude Include="SSDFaceConfig.h" />
+    <ClInclude Include="SSDFaceDetector.h" />
+    <ClInclude Include="VOCUtil\AnnotationFile.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="VOCUtil\DataSetConfig.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="VOCUtil\pugiconfig.hpp">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="VOCUtil\pugixml.hpp">
+      <Filter>util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="util">
+      <UniqueIdentifier>{d737e1af-448f-456e-b188-70e240da0adb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

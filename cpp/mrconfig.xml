@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<dataset>
+	<name>ibm</name>
+	<year>2017</year>
+	<imagedir>images</imagedir>
+	<annotationdir>Annotations</annotationdir>
+	<labelsdir>labels</labelsdir>
+	<currentlabelingclass>classA</currentlabelingclass>
+	<lastlabeledindex>0</lastlabeledindex>
+	<bsavexml>true</bsavexml>
+	<bsavetxt>true</bsavetxt>
+	<classes>
+		<class>background</class>
+		<class>classA</class>
+	</classes>
+</dataset>
