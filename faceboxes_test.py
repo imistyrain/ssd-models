@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*
 import numpy as np  
-import sys,os,cv2
-caffe_root = 'D:/CNN/ssd'
+import sys,os,cv2,platform
+if platform.system()=="Windows":
+    caffe_root="D:/CNN/ssd"
+else:
+    caffe_root="/home/yanyu/Detection/ssd"
+sys.path.insert(0,caffe_root+'/python')
 sys.path.insert(0, caffe_root + '/python')  
 import caffe  
 import time
@@ -48,7 +52,7 @@ def testimg(imgfile):
     time_start=time.time()
     out = net.forward()  
     time_end=time.time()
-    print time_end-time_start
+    print(time_end-time_start)
     box, conf, cls = postprocess(frame, out)
     for i in range(len(box)):
         p1 = (box[i][0], box[i][1])
@@ -79,8 +83,7 @@ def detect(cameraindex=0):
       time_start=time.time()
       out = net.forward()  
       time_end=time.time()
-      print time_end-time_start,  
-      print "s"
+      print(time_end-time_start)
 
       box, conf, cls = postprocess(frame, out)
 

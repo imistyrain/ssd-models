@@ -4,11 +4,12 @@ plt.rcParams['figure.figsize'] = (10, 10)
 plt.rcParams['image.interpolation'] = 'nearest'
 plt.rcParams['image.cmap'] = 'gray'
 
-import os
-curdir=os.getcwd()
-import sys
-sys.path.insert(0,'../../python')
-
+import os,platform,sys
+if platform.system()=="Windows":
+    caffe_root="D:/CNN/ssd"#2
+else:
+    caffe_root="/home/yanyu/Detection/ssd"
+sys.path.insert(0,caffe_root+'/python')
 import caffe
 caffe.set_device(0)
 caffe.set_mode_gpu()
@@ -16,7 +17,7 @@ from google.protobuf import text_format
 from caffe.proto import caffe_pb2
 datasetname="Face2017"
 # load PASCAL VOC labels
-labelmap_file = curdir+'/labelmap_face.prototxt'
+labelmap_file = 'labelmap_face.prototxt'
 file = open(labelmap_file, 'r')
 labelmap = caffe_pb2.LabelMap()
 text_format.Merge(str(file.read()), labelmap)
@@ -28,7 +29,7 @@ def get_labelname(labelmap, labels):
         labels = [labels]
     for label in labels:
         found = False
-        for i in xrange(0, num_labels):
+        for i in range(0, num_labels):
             if label == labelmap.item[i].label:
                 found = True
                 labelnames.append(labelmap.item[i].display_name)
@@ -38,8 +39,8 @@ def get_labelname(labelmap, labels):
 #model_def =curdir+"/cpp/models/face_deploy.prototxt"
 #model_weights=curdir+"/cpp/models/VGG_Face2017_SSD_300x300_iter_120000.caffemodel"
 #image_resize = 300
-model_def =curdir+"/cpp/models/faceboxes_deploy.prototxt"
-model_weights=curdir+"/cpp/models/FaceBoxes_1024x1024.caffemodel"
+model_def ="cpp/models/faceboxes_deploy.prototxt"
+model_weights="cpp/models/FaceBoxes_1024x1024.caffemodel"
 image_resize = 1024
 net = caffe.Net(model_def,      # defines the structure of the model
                 model_weights,  # contains the trained weights
@@ -85,13 +86,13 @@ colors = plt.cm.hsv(np.linspace(0, 1, 21)).tolist()
 plt.imshow(image)
 currentAxis = plt.gca()
 
-for i in xrange(top_conf.shape[0]):
+for i in range(top_conf.shape[0]):
     xmin = int(round(top_xmin[i] * image.shape[1]))
     ymin = int(round(top_ymin[i] * image.shape[0]))
     xmax = int(round(top_xmax[i] * image.shape[1]))
     ymax = int(round(top_ymax[i] * image.shape[0]))
     score = top_conf[i]
-    print xmin,ymin,xmax,ymax,score
+    print(xmin,ymin,xmax,ymax,score)
     label = int(top_label_indices[i])
     label_name = top_labels[i]
     display_txt = '%s: %.2f'%(label_name, score)

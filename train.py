@@ -1,7 +1,7 @@
 from __future__ import print_function
 import sys,platform
 if platform.system()=="Windows":
-    caffe_root="D:/CNN/ssd"#2
+    caffe_root="D:/CNN/ssd"
 else:
     caffe_root="/home/yanyu/Detection/ssd"
 sys.path.insert(0,caffe_root+'/python')
