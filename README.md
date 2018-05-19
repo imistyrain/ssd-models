@@ -36,7 +36,7 @@ git clone https://github.com/imistyrain/ssd-face
 #### 3.1 python版本
 
 ```python
-python face_detect.py
+python demo.py
 ```
 
 #### 3.2 Windows下命令行版本
@@ -64,8 +64,7 @@ RunFaceDetect.bat
 #### 4.2 生成训练所需格式数据
 
 ```
-python create_list.py
-./create_data.sh
+python create_all.py
 ```
 其中create_list.py把训练图片路径及其标注按行写入到trainval.txt中，把测试图片路径及其标注按行写入到test.txt中，把测试图片路径及其大小（高度、宽度）写入到test_name_size.txt中
 
@@ -78,7 +77,7 @@ create_data.sh用于生成训练所需的lmdb文件,由于要支持多标签的�
 #### 4.3 启动训练
 
 ```
-python face_train.py
+python train.py
 ```
 
 ## 参考
