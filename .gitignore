@@ -1,0 +1,14 @@
+.vs
+.vscode
+build
+data
+models
+output
+snapshot
+*lmdb
+*lmdb
+*.caffemodel
+params
+cpp4caffe
+paddle/
+Shoes
