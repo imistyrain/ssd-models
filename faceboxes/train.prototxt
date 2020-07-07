@@ -41,7 +41,7 @@ layer {
     }
   }
   data_param {
-    source: "faceboxes/WIDER_FACE_train_lmdb"
+    source: "data/wider_face_lmdb/WIDER_FACE_train_lmdb"
     batch_size: 16
     backend: LMDB
   }

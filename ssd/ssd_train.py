@@ -75,8 +75,8 @@ def AddExtraLayers(net, use_batchnorm=True, lr_mult=1):
       lr_mult=lr_mult)
 
     return net
-train_data = datasetname+"/lmdb/trainval_lmdb"
-test_data = datasetname+"/lmdb/test_lmdb"
+train_data = "data/"+datasetname+"/lmdb/trainval_lmdb"
+test_data = "data/"+datasetname+"/lmdb/test_lmdb"
 # Specify the batch sampler.
 resize_width = 300
 resize_height = 300

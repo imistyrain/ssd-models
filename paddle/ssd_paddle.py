@@ -32,7 +32,7 @@ def preprocess(img):
     if modelname == "mobilenet-ssd":
         img = (img - 127.5) * 0.007843
     else:
-        mean = np.array([103.94, 116.669, 123.68], np.float32).reshape([3, 1, 1])
+        mean = (103.94, 116.669, 123.68)
         img = img - mean
     img = img.transpose((2,0,1)).copy()
     img = np.expand_dims(img,axis=0)
@@ -66,7 +66,7 @@ def test_image(predictor, imgpath):
     cv2.waitKey()
 
 def test_camera(predictor):
-    cap = cv2.VideoCapture(this_dir+"../images/test.avi")
+    cap = cv2.VideoCapture(0)
     while True:
         ret, img = cap.read()
         if not ret:
@@ -84,10 +84,10 @@ def parse_args():
 
 if __name__ == "__main__":
     args = parse_args()
-    model_file = args.model_dir + "/__model__"
-    params_file = args.model_dir + "/__params__"
-    config = AnalysisConfig(model_file, params_file)
+    #model_file = args.model_dir + "/__model__"
+    #params_file = args.model_dir + "/__params__"
+    config = AnalysisConfig(args.model_dir)
     config.disable_gpu()
     predictor = create_paddle_predictor(config)
-    test_image(predictor, args.image)
-    #test_camera(predictor)
+    #test_image(predictor, args.image)
+    test_camera(predictor)

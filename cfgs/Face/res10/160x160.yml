@@ -1,0 +1,17 @@
+model:
+  name: "res10"
+  width: 160
+  height: 160
+  mbox_source_layers: ['relu4','relu8','relu9_2','relu10_2','relu11_2','relu12_2']
+  min_ratio: 20
+  max_ratio: 90
+  min_size: 120
+  steps: [8,16,32,64,64,64]
+  aspect_ratios: [[2],[2],[2],[2],[2],[2]]
+  normalizations: [20, -1, -1, -1,-1,-1]
+dataset:
+  name: "Face"
+  num_classes: 2
+  num_test_image: 3200
+  train: "trainval"
+  val: "test"

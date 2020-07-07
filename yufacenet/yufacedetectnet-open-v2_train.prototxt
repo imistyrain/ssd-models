@@ -46,8 +46,8 @@ layer {
     }
   }
   data_param {
-    source: "yufacenet/wider_face_lmdb/trainval_lmdb/"
-    batch_size: 60
+    source: "data/wider/lmdb/trainval_lmdb/"
+    batch_size: 32
     backend: LMDB
   }
   annotated_data_param {

@@ -1,0 +1,8 @@
+numpy
+cv2
+matplotlib
+lmdb
+json
+tqdm
+yacs
+#paddlepaddle

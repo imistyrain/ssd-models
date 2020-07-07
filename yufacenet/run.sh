@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ..
-TOOLS=~/Detection/ssd/build/tools/caffe
+TOOLS=~/CNN/ssd/build/tools/caffe
 
 # voc 21
 # Face, Car, Person, Head 2

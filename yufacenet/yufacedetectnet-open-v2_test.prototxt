@@ -46,14 +46,14 @@ layer {
     }
   }
   data_param {
-    source: "yufacenet/wider_face_lmdb/test_lmdb/"
+    source: "data/wider/lmdb/test_lmdb/"
     batch_size: 8
     backend: LMDB
   }
   annotated_data_param {
     batch_sampler {
     }
-    label_map_file: "Face/labelmap.prototxt"
+    label_map_file: "labelmap.prototxt"
   }
 }
 
